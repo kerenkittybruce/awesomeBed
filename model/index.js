@@ -19,7 +19,7 @@ class User {
     const { EmailAdd, UserPass } = req.body;
     const strQry = `
         SELECT FirstName, LastName, Gender, EmailAdd, UserPass, UserRole, UserProfile
-        FROM Users
+        FROM users
         WHERE EmailAdd = '${EmailAdd}';
         `;
     db.query(strQry, async (err, data) => {
@@ -97,7 +97,7 @@ class User {
       UserPass: detail.UserPass,
     };
     // sql query
-    const strQry = `INSERT INTO Users
+    const strQry = `INSERT INTO users
         SET ?;`;
     db.query(strQry, [detail], (err) => {
       if (err) {
@@ -138,7 +138,7 @@ class User {
 
   deleteUser(req, res) {
     const strQry = `
-        DELETE FROM Users
+        DELETE FROM users
         WHERE userID = ?;
         `;
     //db
