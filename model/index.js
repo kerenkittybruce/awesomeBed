@@ -181,7 +181,7 @@ class Product {
     }
     fetchProduct(req, res) {
         const strQry = `SELECT id, ProdName, ProdDescription, 
-        levels, Price, ProdQuantity, ImgURL
+        Category, Price, ProdQuantity, ImgURL
         FROM products
         WHERE id = ?;`;
         db.query(strQry, [req.params.id], (err, results)=> {
