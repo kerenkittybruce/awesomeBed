@@ -180,10 +180,14 @@ class Product {
         });
     }
     fetchProduct(req, res) {
-        const strQry = `SELECT id, ProdName, ProdDescription, 
+        const strQry = 
+        `
+        SELECT id, ProdName, ProdDescription, 
         Category, Price, ProdQuantity, ImgURL
         FROM products
-        WHERE id = ?;`;
+        WHERE id = ?;
+        
+        `;
         db.query(strQry, [req.params.id], (err, results)=> {
             if(err) throw err;
             res.status(200).json({results: results})
