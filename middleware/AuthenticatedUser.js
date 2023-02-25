@@ -7,7 +7,7 @@ function createToken(user) {
     // agree to terms and conditions
     {
       EmailAdd: user.EmailAdd,
-      UserPassword: user.UserPassword,
+      UserPass: user.UserPass,
     },
     process.env.SECRET_KEY,
     {
