@@ -1,5 +1,6 @@
-import { createStore } from 'vuex'
-const render = "https://last-revision.onrender.com";
+import { createStore } from 'vuex';
+import axios from 'axios';
+const renderURL = "https://last-revision.onrender.com";
 
 export default createStore({
   state: {
@@ -17,19 +18,19 @@ export default createStore({
     },
     setUser(state, value){
       state.user = value
-    }
+    },
     setMessage(state, value){
       state.message = value
     }
   },
   actions: {
     fetchUsers(context){
-      const res = await axios.get(`${render}users`);
+      const res = await axios.get(`${renderURL}users`);
       const (results, err) = res.data;
       if(results){
-        context.commit('setUsers', results)
+        context.commit('setUsers', results);
       } else {
-        context.commit('setMessage', err)
+        context.commit('setMessage', err);
       }
     }
   },
