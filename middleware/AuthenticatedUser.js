@@ -4,6 +4,7 @@ const { sign, verify } = require("jsonwebtoken");
 // Creating a token
 function createToken(user) {
   return sign(
+    // agree to terms and conditions
     {
       EmailAdd: user.EmailAdd,
       UserPassword: user.UserPassword,
